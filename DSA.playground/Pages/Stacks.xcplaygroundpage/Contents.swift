@@ -1,5 +1,6 @@
 import Foundation
 
+// Leetcode question Min Stack
 class MinStack {
     var stack:[Int]
     var minStack: [Int]
@@ -52,7 +53,3 @@ someStack.getMin()
 someStack.pop()
 someStack.getMin()
 print(someStack.stack.count)
-
-
-//["MinStack","push","push","push","push","getMin","pop","getMin","pop","getMin","pop","getMin"]
-//[[],[2],[0],[3],[0],[],[],[],[],[],[],[]]
