@@ -1,6 +1,6 @@
 import Foundation
 
-// Leetcode question Min Stack
+// Leetcode question Min Stack 155.
 class MinStack {
     var stack:[Int]
     var minStack: [Int]
