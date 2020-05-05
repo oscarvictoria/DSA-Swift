@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<playground version='6.0' target-platform='ios'>
+    <pages>
+        <page name='BigONotation'/>
+        <page name='Stacks'/>
+        <page name='LinkedList'/>
+        <page name='Queues'/>
+        <page name='InsertionSort'/>
+        <page name='BubbleSort'/>
+        <page name='MergeSort'/>
+        <page name='BinarySearch'/>
+        <page name='BinaryTrees'/>
+        <page name='BinaryTrees2'/>
+    </pages>
+</playground>
