@@ -9,7 +9,7 @@
         <page name='BubbleSort'/>
         <page name='MergeSort'/>
         <page name='BinarySearch'/>
-        <page name='BinaryTrees'/>
+        <page name='Review'/>
         <page name='BinaryTrees2'/>
     </pages>
 </playground>

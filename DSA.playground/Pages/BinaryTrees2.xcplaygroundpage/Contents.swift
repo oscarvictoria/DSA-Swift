@@ -1,72 +1,93 @@
 import UIKit
 
+//Fellow 1:
+//Implement a Binary Tree.
+//Implement Breadth-first traversal
+//Fellow 2:
+//Implement inorder traversal
+//Implement post-order traversal
+//Implement pre-order traversal
+//
+//   1
+//  / \
+//  2  3
+// / \
+// 4  5
+//
+//Breadth-first traversal = [1, 2, 3, 4, 5]
+//inorder traversal = [2, 1, 3]
+//post-order traversal = [2, 3, 1]
+//pre-order traversal = [1,2,4,5,3]
+
 class BinaryTreeNode<T> {
-    var value: T
-    var leftChild: BinaryTreeNode?
-    var rightChild: BinaryTreeNode?
-    
-    init(_ value: T) {
-    self.value = value
-    }
+  var leftBranch: BinaryTreeNode?
+  var rightBranch: BinaryTreeNode?
+  var value: T
+
+ init(_ value: T) {
+   self.value = value
+ }
+
+}
+
+class Queue<T> {
+ var elements = [T]()
+
+ var top: T? {
+   return elements.first
+ }
+
+ var isEmpty: Bool {
+   return elements.isEmpty
+ }
+
+init() {
+
+}
+
+func enqueue(_ element: T) {
+  elements.append(element)
+}
+
+func dequeue()-> T? {
+  guard !isEmpty else {return nil}
+  return elements.removeFirst()
+}
+
 }
 
 extension BinaryTreeNode {
-    
-    func inOrderTreversal(visit: (BinaryTreeNode)-> ()) {
-        leftChild?.inOrderTreversal(visit: visit)
-        visit(self)
-        rightChild?.inOrderTreversal(visit: visit)
+  func breadthFirstTraversal(visit: (BinaryTreeNode) -> ()) {
+    let queue = Queue<BinaryTreeNode>()
+    visit(self) // root = 1 binarytreenode.val = 1
+    queue.enqueue(self) // [1]
+
+    while let branch = queue.dequeue() {
+      if let leftBranch = branch.leftBranch {
+        visit(leftBranch)
+        queue.enqueue(leftBranch)
+      }
+      if let rightBranch = branch.rightBranch {
+        visit(rightBranch)
+        queue.enqueue(rightBranch)
+      }
     }
-    
-    func preOrderTraversal(visit: (BinaryTreeNode)->()) {
-        visit(self)
-        leftChild?.preOrderTraversal(visit: visit)
-        rightChild?.preOrderTraversal(visit: visit)
-    }
-    
-    func postOrderTraversal(visit: (BinaryTreeNode)->()) {
-        leftChild?.postOrderTraversal(visit: visit)
-        rightChild?.postOrderTraversal(visit: visit)
-        visit(self)
-    }
+
+  }
+  func inOrderTraversal() {
+
+
+  }
+  func preOrderTraversal() {
+
+  }
+  func postOrderTraversal() {
+
+  }
 }
 
 
-let treeNode = BinaryTreeNode<Int>(1)
-let twoNode = BinaryTreeNode<Int>(2)
-let threeNode = BinaryTreeNode<Int>(3)
-let fourNode = BinaryTreeNode<Int>(4)
-let fiveNode = BinaryTreeNode<Int>(5)
-let sixNode = BinaryTreeNode<Int>(6)
-let sevenNode = BinaryTreeNode<Int>(7)
-
-
-treeNode.leftChild = twoNode
-threeNode.rightChild = threeNode
-twoNode.leftChild = fourNode
-twoNode.rightChild = fiveNode
-
-
-treeNode.inOrderTreversal { (node) in
-    print(node.value, terminator: " ")
-}
-
-print("\n")
-
-// test pre order trsversal
-
-print("pre order traversal")
-treeNode.preOrderTraversal { (node) in
-    print(node.value, terminator: " ")
-}
-
-print("\n")
-
-// test post order traversa;
-
-print("post order traversal")
-
-treeNode.postOrderTraversal { (node) in
-    print(node.value, terminator: " ")
-}
+var tree = BinaryTreeNode(1)
+tree.leftBranch = BinaryTreeNode(2)
+tree.rightBranch = BinaryTreeNode(3)
 
